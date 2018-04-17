@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		#complete this method
+		
 	end
 
 	def destroy
