@@ -25,15 +25,21 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    user = User.new(user_params)
-
+    	@user = User.create!(params[:id])
+	if @user
+		flash[:notice] = 'User succesfully created'
+		redirect_to user_path
+	else
+		flash[:notice] = 'User Error'
+		redirect_to user_path
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
     user = User.find(params[:id])
-    user.update!(user_params)
+    user.update(user_params)
+    flash[:notice] = 'User succesfully updated'
     redirect_to user
   end
 
